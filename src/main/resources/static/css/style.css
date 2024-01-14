@@ -1,0 +1,112 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+}
+
+#app {
+    text-align: center;
+    width: 80%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    display: flex;
+    align-items: center;
+}
+
+header img {
+    width: 100px; /* размер логотипа */
+    margin-right: 10px;
+}
+
+h1 {
+    color: #333;
+}
+
+#addTransactionForm {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 40%;
+    margin-bottom: 20px;
+}
+
+input, select, button {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#calculateProfitsBtn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#calculateProfitsBtn:hover {
+    background-color: #0056b3;
+}
+
+/* Добавим стили для положительных и отрицательных сумм */
+table td:nth-child(2) {
+    color: #4CAF50; /* зеленый цвет для положительных сумм */
+}
+
+table td:nth-child(5) {
+    color: #4CAF50; /* зеленый цвет для положительных сумм */
+}
+
+table td:nth-child(2).negative, table td:nth-child(5).negative {
+    color: #d9534f; /* красный цвет для отрицательных сумм */
+}

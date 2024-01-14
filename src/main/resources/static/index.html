@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Peer2PeerBooks</title>
+</head>
+<body>
+
+<div id="app">
+    <header>
+        <img src="image/logo.png" alt="Company Logo">
+    </header>
+
+    <div id="addTransactionForm">
+        <input type="number" id="amount" placeholder="Amount" autocomplete="off">
+
+        <input type="number" id="exchangeRate" step="0.001" value="0.9">
+
+        <select id="transactionType">
+            <option value="SEPA_INSTANT">SEPA INSTANT</option>
+            <option value="SEPA_STANDARD">SEPA STANDARD</option>
+        </select>
+
+        <button onclick="saveTransaction()" >Add</button>
+    </div>
+
+    <table id="transactionTable">
+        <tr>
+            <th>Time</th>
+            <th>Amount</th>
+            <th>Exchange Rate</th>
+            <th>Transaction Type</th>
+            <th>Profit</th>
+            <th>Delete</th>
+        </tr>
+    </table>
+
+    <button id="calculateProfitsBtn" onclick="calculateProfits()">Calculate Profits</button>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
