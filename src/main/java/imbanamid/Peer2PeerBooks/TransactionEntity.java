@@ -1,13 +1,14 @@
 package imbanamid.Peer2PeerBooks;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.format.annotation.DateTimeFormat;
+
 
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+
 
 /**
  * Entity class representing a financial transaction.
@@ -16,7 +17,6 @@ import java.time.format.DateTimeFormatter;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class TransactionEntity {
 
 
@@ -28,7 +28,7 @@ public class TransactionEntity {
     private Double exchangeRate;
     private Double profit;
 
-//    @DateTimeFormat(fallbackPatterns = "MM")
+    @JsonFormat(pattern = "yyy.MM.dd HH:mm")
     @CreationTimestamp
     private LocalDateTime creationDate;
 
@@ -37,11 +37,6 @@ public class TransactionEntity {
 
     private Double usdtAmount;
 
-//    public TransactionEntity() {
-//        LocalDateTime now = LocalDateTime.now();
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
-//        this.creationDate = LocalDateTime.parse(now.format(formatter), formatter);
-//    }
 
     /**
      * Updates the USDT amount based on the transaction's amount and exchange rate.
@@ -52,9 +47,7 @@ public class TransactionEntity {
     @PreUpdate
     private void updateUsdtAmount() {
         if (amount != null && exchangeRate != null) {
-            usdtAmount = amount * exchangeRate;
+            usdtAmount = amount / exchangeRate * -1;
         }
-
-
     }
 }

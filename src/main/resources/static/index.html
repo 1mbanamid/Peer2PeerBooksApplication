@@ -6,11 +6,60 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Peer2PeerBooks</title>
 </head>
+<style>
+    /* Существующие стили */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        height: 100vh;
+    }
+
+    #app {
+        text-align: center;
+        width: 80%;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Добавляем стили для отображения сумм */
+    #transactionSums {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Изменил на center для центрирования данных */
+        flex-wrap: wrap; /* Позволяет элементам переноситься на новую строку, если не хватает места */
+        margin-bottom: 20px; /* Добавляет отступ снизу для визуального разделения */
+        font-size: 16px;
+        color: #333;
+    }
+
+    #transactionSums span {
+        padding: 5px 10px;
+        background-color: #eff0f1;
+        border-radius: 5px;
+        margin: 0 5px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        font-weight: bold; /* Делает текст жирным для лучшей видимости */
+    }
+</style>
+
 <body>
 
 <div id="app">
     <header>
         <img src="image/logo.png" alt="Company Logo">
+        <div id="transactionSums">
+            <span id="totalUsdtAmount">USDT: 0</span> |
+            <span id="totalAmount">EURO: 0</span> |
+            <span id="sepaInstantRemaining">SEPA INSTANT: 5000</span>
+        </div>
+
     </header>
 
     <div id="addTransactionForm">
@@ -23,8 +72,9 @@
             <option value="SEPA_STANDARD">SEPA STANDARD</option>
         </select>
 
-        <button onclick="saveTransaction()" >Add</button>
+        <button onclick="saveTransaction()">Add</button>
     </div>
+
 
     <table id="transactionTable">
         <tr>
@@ -33,11 +83,10 @@
             <th>Exchange Rate</th>
             <th>Transaction Type</th>
             <th>Profit</th>
+            <th>Percent</th>
             <th>Delete</th>
         </tr>
     </table>
-
-    <button id="calculateProfitsBtn" onclick="calculateProfits()">Calculate Profits</button>
 </div>
 
 <script src="js/app.js"></script>

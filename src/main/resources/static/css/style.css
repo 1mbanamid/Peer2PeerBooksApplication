@@ -20,12 +20,13 @@ body {
 
 header {
     display: flex;
+    justify-content: space-between; /* Распределяем пространство между элементами */
     align-items: center;
+    margin-bottom: 20px;
 }
 
 header img {
-    width: 100px; /* размер логотипа */
-    margin-right: 10px;
+    width: 300px;
 }
 
 h1 {
@@ -98,15 +99,6 @@ tr:nth-child(even) {
     background-color: #0056b3;
 }
 
-/* Добавим стили для положительных и отрицательных сумм */
-table td:nth-child(2) {
-    color: #4CAF50; /* зеленый цвет для положительных сумм */
-}
-
-table td:nth-child(5) {
-    color: #4CAF50; /* зеленый цвет для положительных сумм */
-}
-
-table td:nth-child(2).negative, table td:nth-child(5).negative {
-    color: #d9534f; /* красный цвет для отрицательных сумм */
+.negative {
+    color: #d9534f; /* красный цвет для отрицательных значений */
 }
